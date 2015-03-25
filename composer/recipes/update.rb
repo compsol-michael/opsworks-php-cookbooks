@@ -9,6 +9,7 @@ node[:deploy].each do |application, deploy|
     cwd "#{deploy[:deploy_to]}/current"
     code <<-EOH
     curl -s https://getcomposer.org/installer | php
+    rm storage/framework/compiled.php
     php composer.phar update
     EOH
   end
