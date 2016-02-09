@@ -10,6 +10,7 @@ node[:deploy].each do |application, deploy|
     code <<-EOH
     curl -s https://getcomposer.org/installer | php
     rm storage/framework/compiled.php
+    php composer.phar config --global discard-changes true
     php composer.phar update
     EOH
   end
